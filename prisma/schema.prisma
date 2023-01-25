@@ -1,0 +1,35 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Candidate {
+  id            Int      @id @default(autoincrement())
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+  title         String?  @db.VarChar(255)
+  name          String   @db.VarChar(255)
+  nickname      String   @db.VarChar(255)
+  province      String   @db.VarChar(255)
+  khet          Int
+  Amphur        String   @db.VarChar(255)
+  zip_code      String   @db.VarChar(255)
+  phone_no      String   @db.VarChar(255)
+  ss_term       Int
+  fb            String   @db.VarChar(255)
+  ig            String   @db.VarChar(255)
+  twitter       String   @db.VarChar(255)
+  line          String   @db.VarChar(255)
+  tiktok        String   @db.VarChar(255)
+  pic_url       String   @db.VarChar(255)
+  resume_url    String   @db.VarChar(255)
+  party_list_no Int
+  result        Boolean  @default(true)
+}
