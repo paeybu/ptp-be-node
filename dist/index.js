@@ -17,10 +17,10 @@ const client_1 = require("@prisma/client");
 const app = (0, express_1.default)();
 const port = 8080;
 const prisma = new client_1.PrismaClient();
-app.get('/', (req, res) => {
+app.get('/api', (req, res) => {
     res.send('Hello World!');
 });
-app.get('/candidates', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+app.get('/api/candidates', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     const candidates = yield prisma.candidate.findMany();
     res.json(candidates);
 }));
