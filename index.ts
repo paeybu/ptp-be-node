@@ -5,11 +5,11 @@ const port = 8080;
 
 const prisma = new PrismaClient();
 
-app.get('/', (req, res) => {
+app.get('/api', (req, res) => {
   res.send('Hello World!');
 });
 
-app.get('/candidates', async (req, res) => {
+app.get('/api/candidates', async (req, res) => {
   const candidates = await prisma.candidate.findMany();
   res.json(candidates);
 });
